@@ -1,0 +1,12 @@
+<button (click)="formFromSchema('kitchen')">build form from kitchen.json</button>
+
+
+<json-schema-form loadExternalAssets="true" [form]="jsonFormObject" [options]="jsonFormOptions" [framework]="selectedFramework">
+</json-schema-form>
+
+<!-- *ngIf="formActive"
+ (validationErrors)="validationErrors($event)"
+ [language]="selectedLanguage"
+ (onChanges)="onChanges($event)"
+ (onSubmit)="onSubmit($event)"
+ (isValid)="isValid($event)" -->
