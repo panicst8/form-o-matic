@@ -40,19 +40,22 @@ export class DynaFormComponent implements OnInit {
   constructor(private schemaService: SchemaService) {}
 
   ngOnInit() {
-    this.schemaService.getSchema('kitchen').subscribe((schema) => {
+    this.schemaService.getSchema('kitchen').subscribe(schema => {
       this.jsonFormSchema = JSON.stringify(schema);
       console.log('init: ', schema);
     });
   }
 
   formFromSchema(schema) {
-    this.jsonFormObject = this.generateForm(this.jsonFormSchema);
+    // Do you want generateForm to return the object?
+    // The method was not returning anything so you were setting the value to nothing.
+    // this.jsonFormObject = this.generateForm(this.jsonFormSchema);
+    this.generateForm(this.jsonFormSchema);
     console.log(this.jsonFormSchema);
     console.log(this.jsonFormObject);
   }
 
-  generateForm(newFormString: string) {
+  generateForm(newFormString: string): void {
     if (!newFormString) {
       return;
     }
